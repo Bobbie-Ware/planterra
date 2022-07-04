@@ -340,6 +340,22 @@ exports.createSchemaCustomization = async ({ actions }) => {
       image: HomepageImage
       html: String!
     }
+
+    interface StorePage implements Node {
+      id: ID!
+      title: String
+      description: String
+      products: [Product]
+    }
+
+    interface Product implements Node {
+      id: ID!
+      name: String
+      description: String
+      price: String
+      instock: Boolean
+      pictures : [HomepageImage]
+    }
   `)
 
   // CMS-specific types for Homepage

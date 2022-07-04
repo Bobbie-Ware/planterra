@@ -26,7 +26,7 @@ export default function Hero(props) {
               />
             )}
           </Box>
-          <Box width="half">
+          <Box center width="half">
             <Heading as="h1">
               {props.kicker && <Kicker>{props.kicker}</Kicker>}
               {props.h1}
