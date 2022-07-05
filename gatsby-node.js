@@ -341,20 +341,26 @@ exports.createSchemaCustomization = async ({ actions }) => {
       html: String!
     }
 
-    interface StorePage implements Node {
+    interface Category implements Node {
       id: ID!
       title: String
-      description: String
-      products: [Product]
+      subtitle: String
+    }
+
+    interface ProductType implements Node {
+      id: ID!
+      name: String
+      category: Category
     }
 
     interface Product implements Node {
       id: ID!
       name: String
       description: String
-      price: String
-      instock: Boolean
-      pictures : [HomepageImage]
+      price: Float
+      inStock: Boolean
+      productType: ProductType
+      pictures: [HomepageImage]
     }
   `)
 
@@ -624,6 +630,31 @@ exports.createSchemaCustomization = async ({ actions }) => {
       description: String
       image: HomepageImage @link(from: "image___NODE")
       html: String! @richText
+    }
+  `)
+
+  // Shop types
+  actions.createTypes(/* GraphQL */ `
+    type ContentfulCategory implements Node & Category {
+      id: ID!
+      title: String
+      subtitle: String
+    }
+
+    type ContentfulProductType implements Node & ProductType {
+      id: ID!
+      name: String
+      category: Category @link(from: "category___NODE")
+    }
+
+    type ContentfulProduct implements Node & Product {
+      id: ID!
+      title: String
+      description: String
+      price: Float
+      inStock: Boolean
+      pictures: [HomepageImage] @link(from: "pictures___NODE")
+      productType: ProductType @link(from: "productType___NODE")
     }
   `)
 }
