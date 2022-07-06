@@ -12,9 +12,12 @@ export default function Shop(props) {
     <Layout title="Shop">
       <Box paddingY={3}>
         <Heading as="h1">Shop</Heading>
-        <ul>
+        <ul className={styles.productList}>
           {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <li className={styles.productListCard} key={product.id}>
+              <ProductCard product={product} />
+            </li>
+
           ))}
         </ul>
       </Box>

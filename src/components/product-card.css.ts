@@ -21,6 +21,7 @@ export const productCardImage = style({
 export const productGatsbyImage = style({
     maxWidth : "200px",
     maxHeight: "200px",
+    borderRadius: "8px",
 });
 
 export const productCardDetails = style({
@@ -43,7 +44,8 @@ export const productHeading = style({
     textAlign: "center",
     overflow: "hidden",
     textOverflow: "ellipsis",
-    lineHeight: theme.lineHeights.heading
+    lineHeight: theme.lineHeights.text,
+    margin: "2px 0",
 });
 
 export const productPrice = style({

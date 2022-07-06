@@ -25,7 +25,7 @@ export function ProductCard({ product }) {
             <div className={styles.productCardDetails}>
                 <div className={styles.productType}>{productType}</div>
                 <h2 className={styles.productHeading}>{name}</h2>
-                <div className={styles.productPrice}>{price}</div>
+                <div className={styles.productPrice}>${price}</div>
             </div>
         </Link>
     );
