@@ -353,6 +353,12 @@ exports.createSchemaCustomization = async ({ actions }) => {
       category: Category
     }
 
+    interface ShopPage implements Node {
+      id: ID!
+      title: String
+      products: [Product]
+    }
+
     interface Product implements Node {
       id: ID!
       name: String
@@ -361,6 +367,12 @@ exports.createSchemaCustomization = async ({ actions }) => {
       price: Float
       inStock: Boolean
       productType: ProductType
+      pictures: [HomepageImage]
+    }
+
+    interface GalleryPage implements Node {
+      id: ID!
+      title: String
       pictures: [HomepageImage]
     }
   `)
@@ -648,6 +660,12 @@ exports.createSchemaCustomization = async ({ actions }) => {
       category: Category @link(from: "category___NODE")
     }
 
+    type ContentfulShopPage implements Node & ShopPage {
+      id: ID!
+      title: String
+      products: [Product] @link(from: "products___NODE")
+    }
+
     type ContentfulProduct implements Node & Product {
       id: ID!
       title: String
@@ -657,6 +675,15 @@ exports.createSchemaCustomization = async ({ actions }) => {
       inStock: Boolean
       pictures: [HomepageImage] @link(from: "pictures___NODE")
       productType: ProductType @link(from: "productType___NODE")
+    }
+  `)
+
+  // Gallery Type
+  actions.createTypes(/* GraphQL */ `
+    type ContentfulGalleryPage implements Node & GalleryPage {
+      id: ID!
+      title: String
+      pictures: [HomepageImage] @link(from: "pictures___NODE")
     }
   `)
 }

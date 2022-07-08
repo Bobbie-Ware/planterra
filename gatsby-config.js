@@ -29,8 +29,8 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        name: "Gatsby Starter Contentful Homepage",
-        short_name: "Gatsby",
+        name: "Planterra",
+        short_name: "Planterra",
         start_url: "/",
         // These can be imported once ESM support lands
         background_color: "#ffffff",
@@ -39,10 +39,12 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-google-gtag",
+      resolve: "gatsby-plugin-google-tagmanager",
       options: {
-        trackingIds: ["G-B50SWFW1L7"],
-      }
+        id: "GTM-5P3MRZL",
+        includeInDevelopment: true,
+        enableWebVitalsTracking: true,
+      },
     },
   ],
 }

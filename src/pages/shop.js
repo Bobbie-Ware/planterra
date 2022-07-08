@@ -6,7 +6,7 @@ import * as styles from "../components/shop.css"
 import { ProductCard } from "../components/product-card"
 
 export default function Shop(props) {
-  const products = props.data.allProduct.nodes
+  const products = props.data.shopPage.allProducts
 
   return (
     <Layout title="Shop">
@@ -26,9 +26,11 @@ export default function Shop(props) {
 }
 
 export const query = graphql`
-  query {
-    allProduct {
-      nodes {
+  {
+    shopPage{
+    id
+    title
+    allProducts: products {
         id
         name
         description
@@ -46,7 +48,7 @@ export const query = graphql`
           gatsbyImageData
           url
         }
-      }
     }
+  }
   }
 `
