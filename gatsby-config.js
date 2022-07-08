@@ -6,10 +6,10 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://gatsbycontentfulhomepage.gatsbyjs.io/",
-    title: "Gatsby Contentful Homepage Starter",
-    author: `Gatsby`,
-    description: "A Gatsby Starter for building homepages with Contentful",
+    siteUrl: "https://terrarium.nz/",
+    title: "Planterra",
+    author: `Bobbie Ware`,
+    description: "Planterra, New Zealand nature interior decorator",
   },
   plugins: [
     {
@@ -37,6 +37,12 @@ module.exports = {
         theme_color: "#25b138",
         icon: "src/favicon.png",
       },
+    },
+    {
+      resolve: "gatsby-plugin-google-gtag",
+      options: {
+        trackingIds: ["G-B50SWFW1L7"],
+      }
     },
   ],
 }

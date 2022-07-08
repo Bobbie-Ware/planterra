@@ -356,6 +356,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
     interface Product implements Node {
       id: ID!
       name: String
+      slug: String
       description: String
       price: Float
       inStock: Boolean
@@ -651,6 +652,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       title: String
       description: String
+      slug: String
       price: Float
       inStock: Boolean
       pictures: [HomepageImage] @link(from: "pictures___NODE")
