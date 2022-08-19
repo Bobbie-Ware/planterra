@@ -9,6 +9,7 @@ export const shopContainer = style({
 
 export const productList = style({
     display: "grid",
+    paddingInlineStart: "0 !important",
     gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
     gridGap: theme.space[3],
     paddingTop: theme.space[4],
