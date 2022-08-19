@@ -12,7 +12,7 @@ export default function Gallery(props) {
     return (
         <Layout title="Gallery">
             <Box paddingY={3}>
-                <Heading as="h1">Shop</Heading>
+                <Heading as="h1">Gallery</Heading>
                 <ul className={styles.productList}>
                     {pictures.map((picture) => (
                         <li className={styles.productListCard} key={picture.id}>

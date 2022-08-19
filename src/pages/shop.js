@@ -33,15 +33,21 @@ export const query = graphql`
     allProducts: products {
         id
         name
-        description
+        html
         price
         slug
+        inStock
         productType {
           name
           category {
             title
             subtitle
           }
+        }
+        shopPicture {
+          id
+          gatsbyImageData
+          url
         }
         pictures {
           id

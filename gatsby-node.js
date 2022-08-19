@@ -363,10 +363,11 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       name: String
       slug: String
-      description: String
+      html: String
       price: Float
       inStock: Boolean
       productType: ProductType
+      shopPicture: HomepageImage
       pictures: [HomepageImage]
     }
 
@@ -669,10 +670,11 @@ exports.createSchemaCustomization = async ({ actions }) => {
     type ContentfulProduct implements Node & Product {
       id: ID!
       title: String
-      description: String
+      html: String @richText
       slug: String
       price: Float
       inStock: Boolean
+      shopPicture: HomepageImage @link(from: "shopPicture___NODE")
       pictures: [HomepageImage] @link(from: "pictures___NODE")
       productType: ProductType @link(from: "productType___NODE")
     }

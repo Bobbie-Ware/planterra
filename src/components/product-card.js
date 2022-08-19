@@ -9,7 +9,7 @@ export function ProductCard({ product }) {
         slug,
         price,
         productType: { name: productType },
-        pictures,
+        shopPicture,
     } = product;
 
     const formattedPrice = price.toFixed(2);
@@ -17,7 +17,7 @@ export function ProductCard({ product }) {
     return (
         <Link className={styles.productCard} to={`/products/${slug}`}>
             <div className={styles.productCardImage}>
-                <GatsbyImage className={styles.productGatsbyImage} alt={name} image={pictures[0].gatsbyImageData} />
+                <GatsbyImage className={styles.productGatsbyImage} alt={name} image={shopPicture.gatsbyImageData} />
             </div>
             <div className={styles.productCardDetails}>
                 <div className={styles.productType}>{productType}</div>
@@ -33,8 +33,9 @@ export const query = graphql`
         id,
         name,
         slug,
-        description,
+        html,
         price,
+        inStock,
         productType {
             name,
             category {
@@ -42,10 +43,16 @@ export const query = graphql`
                 subtitle
             }
         }
+        shopPicture {
+            id,
+            gatsbyImageData,
+            url
+        }
         pictures {
             id,
             gatsbyImageData,
             url
         }
+
     }
 `;
