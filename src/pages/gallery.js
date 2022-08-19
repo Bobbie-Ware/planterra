@@ -10,9 +10,8 @@ export default function Gallery(props) {
     const pictures = props.data.galleryPage.pictures
 
     return (
-        <Layout title="Gallery">
+        <Layout title="Interior Nature - Gallery">
             <Box paddingY={3}>
-                <Heading as="h1">Gallery</Heading>
                 <ul className={styles.productList}>
                     {pictures.map((picture) => (
                         <li className={styles.productListCard} key={picture.id}>

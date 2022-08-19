@@ -9,17 +9,17 @@ export default function Shop(props) {
   const products = props.data.shopPage.allProducts
 
   return (
-    <Layout title="Shop">
+    <Layout title="Interior Nature - Shop">
       <Box paddingY={3}>
-        <Heading as="h1">Shop</Heading>
-        <ul className={styles.productList}>
-          {products.map((product) => (
-            <li className={styles.productListCard} key={product.id}>
-              <ProductCard product={product} />
-            </li>
-
-          ))}
-        </ul>
+        <div className={styles.shopContainer}>
+          <ul className={styles.productList}>
+            {products.map((product) => (
+              <li className={styles.productListCard} key={product.id}>
+                <ProductCard product={product} />
+              </li>
+            ))}
+          </ul>
+        </div>
       </Box>
     </Layout>
   )

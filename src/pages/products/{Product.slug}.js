@@ -15,8 +15,16 @@ export default function Page(props) {
     thumbnail: picture.url,
   }))
 
+  const handleClick = () => {
+    window.dataLayer.push({
+      event: 'product-button-click',
+    })
+    
+    window.open("https://www.terrarium.nz/", "_blank")
+  }
+
   return (
-    <Layout {...product}>
+    <Layout {...product} title={"Interior Nature - " + product.name}>
       <Box paddingY={2} center={true} >
         <Box className={styles.productBox}>
           <div className={styles.productGalleryContainer}>
@@ -37,7 +45,7 @@ export default function Page(props) {
               }}
             />
             <Heading as="h2" className={styles.productPrice}>${product.price.toFixed(2)}</Heading>
-            {product.inStock && <Button className={styles.productButton}>Purchase on MarketPlace</Button>}
+            {product.inStock && <Button className={styles.productButton} onClick={handleClick}>Purchase on MarketPlace</Button>}
           </div>
         </Box>
       </Box>
