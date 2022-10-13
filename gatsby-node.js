@@ -67,6 +67,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       return {
         resolve(source, args, context, info) {
           const body = source.body
+          if (!body) return null
           const doc = JSON.parse(body.raw)
           const html = documentToHtmlString(doc)
           return html
