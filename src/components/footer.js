@@ -100,7 +100,7 @@ export default function Footer() {
   return (
     <Box as="footer" paddingY={4}>
       <Container>
-        <Flex variant="start" responsive>
+        <Flex variant="center" responsive>
           <NavLink to="/">
             <VisuallyHidden>Home</VisuallyHidden>
             <BrandLogo />

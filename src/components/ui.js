@@ -171,7 +171,7 @@ export function ButtonList({ links = [], reversed = false, ...props }) {
     return i === 0 ? "primary" : "link"
   }
   return (
-    <FlexList marginY={4} {...props}>
+    <FlexList marginY={3} {...props}>
       {links &&
         links.map((link, i) => (
           <li key={link.id}>

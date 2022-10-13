@@ -17,7 +17,7 @@ export default function Hero(props) {
   return (
     <Section>
       <Container>
-        <Flex gap={4} variant="responsive">
+        <Flex gap={4} variant="center">
           <Box width="half">
             {props.image && (
               <GatsbyImage

@@ -27,16 +27,17 @@ export default function Shop(props) {
 
 export const query = graphql`
   {
-    shopPage{
-    id
-    title
-    allProducts: products {
+    shopPage {
+      id
+      title
+      allProducts: products {
         id
         name
         html
         price
         slug
         inStock
+        buyLink
         productType {
           name
           category {
@@ -54,7 +55,7 @@ export const query = graphql`
           gatsbyImageData
           url
         }
+      }
     }
-  }
   }
 `

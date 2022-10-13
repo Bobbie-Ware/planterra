@@ -235,6 +235,19 @@ exports.createSchemaCustomization = async ({ actions }) => {
       content: [HomepageProduct]
     }
 
+    interface HomepageCatagory implements Node {
+      id: ID!
+      heading: String
+      subheading: String
+      links: [HomepageLink]
+    }
+
+    interface HomepageCatagoryList implements Node {
+      id: ID!
+      heading: String
+      content: [HomepageCatagory]
+    }
+
     interface Homepage implements Node {
       id: ID!
       title: String
@@ -332,13 +345,21 @@ exports.createSchemaCustomization = async ({ actions }) => {
       logos: [HomepageLogo]
     }
 
+    interface PageSection implements Node {
+      id: ID!
+      html: String
+      image: HomepageImage
+      flip: Boolean
+    }
+
     interface Page implements Node {
       id: ID!
       slug: String!
       title: String
       description: String
       image: HomepageImage
-      html: String!
+      html: String
+      pageSections: [PageSection]
     }
 
     interface Category implements Node {
@@ -366,6 +387,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       html: String
       price: Float
       inStock: Boolean
+      buyLink: String
       productType: ProductType
       shopPicture: HomepageImage
       pictures: [HomepageImage]
@@ -538,6 +560,26 @@ exports.createSchemaCustomization = async ({ actions }) => {
       content: [HomepageProduct] @link(from: "content___NODE")
     }
 
+    type ContentfulHomepageCatagory implements Node & HomepageCatagory
+      @dontInfer {
+      heading: String
+      subheading: String
+      links: [HomepageLink] @link(from: "links___NODE")
+    }
+
+    type ContentfulHomepageCatagoryList implements Node & HomepageCatagoryList
+      @dontInfer {
+      heading: String
+      content: [HomepageCatagory] @link(from: "content___NODE")
+    }
+
+    type ContentfulPageSection implements Node & PageSection {
+      id: ID!
+      html: String @richText
+      flip: Boolean
+      image: HomepageImage @link(from: "image___NODE")
+    }
+
     type ContentfulHomepage implements Node & Homepage @dontInfer {
       id: ID!
       title: String
@@ -643,7 +685,8 @@ exports.createSchemaCustomization = async ({ actions }) => {
       title: String
       description: String
       image: HomepageImage @link(from: "image___NODE")
-      html: String! @richText
+      html: String @richText
+      pageSections: [PageSection] @link(from: "pageSections___NODE")
     }
   `)
 
@@ -674,6 +717,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       slug: String
       price: Float
       inStock: Boolean
+      buyLink: String
       shopPicture: HomepageImage @link(from: "shopPicture___NODE")
       pictures: [HomepageImage] @link(from: "pictures___NODE")
       productType: ProductType @link(from: "productType___NODE")

@@ -11,7 +11,7 @@ export const productBox = style({
 });
 
 export const productGalleryContainer = style({
-    marginTop: "5%",    
+    marginTop: "5%",
 });
 
 export const productDetailContainer = style({
@@ -40,7 +40,7 @@ export const productDescription = style({
 export const productPrice = style({
     fontSize: theme.fontSizes[2],
     fontWeight: theme.fontWeights[3],
-    lineHeight: theme.lineHeights[3],      
+    lineHeight: theme.lineHeights[3],
     color: theme.colors.primary,
 });
 
@@ -48,21 +48,20 @@ export const productButton = style({
     fontSize: theme.fontSizes[2],
     fontWeight: theme.fontWeights[3],
     lineHeight: theme.lineHeights[3],
-    color: theme.colors.primary,
-    backgroundColor: 'white',
+    backgroundColor: theme.colors.primary,
+    color: theme.colors.background,
     border: `1px solid ${theme.colors.primary}`,
     borderRadius: '8px',
     padding: `${theme.space[3]} ${theme.space[4]}`,
     marginTop: theme.space[5],
     transition: 'all 0.2s ease-in-out',
     ":hover": {
-        backgroundColor: theme.colors.primary,
-        color: theme.colors.background,
+        backgroundColor: `#34a106`,
     },
 });
 
 export const productImage = style({
-    
+
 });
 
 
@@ -71,4 +70,10 @@ globalStyle(`${productImage} > img`, {
     borderRadius: '5px',
 });
 
+globalStyle(`${productGalleryContainer} svg`, {
+    maxHeight: '60px',
+});
 
+globalStyle(`.image-gallery-thumbnail:active`, {
+    border: '2px solid #0dc14d !important',
+});
